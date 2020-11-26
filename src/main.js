@@ -13,6 +13,13 @@ import axios from 'axios'
 Vue.use(ElementUI)
     //设置全局配置，
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+    // 添加拦截器给请求头加上token认证
+axios.interceptors.request.use(config => {
+        // console.log(config);
+        // console.log("拦截器", config);
+        config.headers.Authorization = window.sessionStorage.getItem('token');
+        return config
+    })
     // 将axios引用给vue原型链,这样全局组件都能用axios
 Vue.prototype.$http = axios;
 

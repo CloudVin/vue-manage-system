@@ -2,6 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
+import Welcome from '../components/Welcome.vue'
+import Users from "../components/user/User.vue"
+
+
 Vue.use(VueRouter)
 
 const routes = [{
@@ -14,7 +18,18 @@ const routes = [{
     },
     {
         path: '/home',
-        component: Home
+        component: Home,
+        redirect: '/welcome',
+        children: [{
+                path: '/welcome',
+                component: Welcome
+            },
+            {
+                // elment-ui提供了一个router属性来开启路由跳转模式，用二级菜单的index的值来代表路径的值
+                path: '/users',
+                component: Users
+            }
+        ]
     }
 ]
 
