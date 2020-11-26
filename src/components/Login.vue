@@ -73,7 +73,7 @@ export default {
                         // 1.1项目中除了登陆之外的其他API接口必须在登录后才能使用
                         // 1.2token只应在网站打开期间生效，所以保存在sessionStorage
                     //2.通过编程式导航跳转后台主页，路径为/home
-                    console.log(res);
+                    // console.log(res);
                         window.sessionStorage.setItem('token',res.data.token);
                         this.$router.push('/home')
                 }
@@ -95,8 +95,8 @@ export default {
     background-size: cover;
 }
 .loginBox{
-    width: 550px;
-    height: 350px;
+    width: 500px;
+    height: 320px;
     background: #fff;
     border-radius: 5px;
     position: absolute;
